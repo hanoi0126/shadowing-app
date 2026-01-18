@@ -1,294 +1,321 @@
-# Shadowing App - English Learning Platform 🎧
+<div align="center">
 
-A full-stack English shadowing practice application built with UX psychology principles, featuring AI feedback, gamification, and intelligent mock services.
+![Shadowing App Logo](./assets/logo.svg)
 
-## 🌟 Features
+**AI駆動の次世代英語シャドーイング学習プラットフォーム**
 
-### Core Functionality
-- **Material Creation**: Create custom shadowing materials with text-to-speech generation
-- **Practice Mode**: Listen to audio with synchronized subtitles
-- **Recording Mode**: Record your shadowing attempts with real-time audio capture
-- **AI Feedback**: Get personalized pronunciation feedback (Gemini AI or mock mode)
-- **Scoring System**: Word-level accuracy scoring with detailed comparisons
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python)](https://www.python.org/)
+[![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=flat-square&logo=supabase)](https://supabase.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
-### Gamification (UX Psychology)
-- **Streak System**: Daily practice streaks with fire emoji visualization
-- **Daily Goals**: Progress tracking with Goal Gradient Effect
-- **XP & Levels**: Experience points and level progression
-- **Achievements**: Unlock badges for milestones
-- **Continue Banner**: Zeigarnik Effect to encourage return
+</div>
 
-### Technical Highlights
-- **Mock Services**: Full app functionality without external API keys
-- **Responsive Design**: Mobile-first, works on all devices
-- **Smooth Animations**: Framer Motion for delightful UX
-- **Dark Theme**: Eye-friendly dark mode by default
-- **TypeScript**: Full type safety across frontend and backend
 
-## 🏗️ Architecture
+## ✨ 特徴
 
-### Backend (FastAPI + Python)
-```
-backend/
-├── app/
-│   ├── services/          # Service layer with mock fallbacks
-│   │   ├── tts_service.py         # ElevenLabs TTS or mock
-│   │   ├── stt_service.py         # ElevenLabs STT or mock
-│   │   ├── ai_service.py          # Gemini AI or template-based
-│   │   ├── scoring_service.py     # Pure Python word matching
-│   │   ├── gamification_service.py # Streak/XP/achievements
-│   │   └── timestamp_service.py   # Audio timestamp generation
-│   ├── routers/           # API endpoints
-│   │   ├── materials.py   # CRUD for materials
-│   │   └── practice.py    # Transcribe, feedback, logs
-│   ├── models/            # Pydantic models
-│   ├── config.py          # Settings with env var loading
-│   └── database.py        # Supabase client
-└── main.py                # FastAPI app entry point
-```
+<table>
+<tr>
+<td width="50%">
 
-### Frontend (Next.js 15 + TypeScript)
-```
-frontend/
-├── app/                   # Next.js App Router pages
-│   ├── page.tsx          # Home with gamification
-│   ├── materials/
-│   │   ├── [id]/page.tsx        # Practice/Recording modes
-│   │   ├── [id]/result/page.tsx # Score & feedback
-│   │   └── create/page.tsx      # Material creation
-│   ├── history/page.tsx  # Practice history
-│   └── login/page.tsx    # Google OAuth
-├── components/
-│   ├── home/             # Gamification UI
-│   ├── practice/         # Audio player, recording
-│   ├── result/           # Score display, comparison
-│   └── layout/           # Navbar, container
-├── store/                # Zustand state management
-├── lib/                  # API client, utilities
-└── types/                # TypeScript definitions
+### 🎯 学習機能
+- **🎤 リアルタイム録音** - 高品質な音声キャプチャ
+- **🤖 AI フィードバック** - Gemini AIによる発音アドバイス
+- **📊 詳細スコアリング** - 単語レベルの精度分析
+- **📝 カスタム教材** - 自由に教材を作成可能
+- **🔊 TTS生成** - ElevenLabsによる自然な音声
+
+</td>
+<td width="50%">
+
+### 🎮 ゲーミフィケーション
+- **🔥 連続記録** - 継続学習の可視化
+- **⭐ XP & レベル** - 経験値システム
+- **🏆 実績バッジ** - マイルストーン達成
+- **🎯 デイリーゴール** - 目標グラディエント効果
+- **📈 進捗追跡** - 学習履歴の可視化
+
+</td>
+</tr>
+</table>
+
+### 🚀 技術的ハイライト
+
+```mermaid
+graph LR
+    A[Next.js Frontend] --> B[FastAPI Backend]
+    B --> C[Supabase DB]
+    B --> D[ElevenLabs API]
+    B --> E[Google Gemini AI]
+    B --> F[Mock Services]
+    
+    style A fill:#000,stroke:#fff
+    style B fill:#009688,stroke:#fff
+    style C fill:#3ECF8E,stroke:#fff
 ```
 
-### Database (Supabase PostgreSQL)
-- `materials`: Practice content with audio URLs
-- `sentences`: Time-stamped text for subtitles
-- `user_stats`: Gamification data (streak, XP, level)
-- `practice_logs`: History of practice sessions
-- `daily_goals`: Daily practice targets
-- `achievements`: Unlocked badges
+- ⚡ **モックサービス完備** - API キーなしで全機能が動作
+- 🎨 **モダンUI** - shadcn/ui + Framer Motion
+- 🌓 **ダークモード** - 目に優しいデフォルトテーマ
+- 📱 **レスポンシブ** - モバイルファースト設計
+- 🔒 **型安全** - TypeScript完全対応
 
-## 🚀 Quick Start
 
-### Prerequisites
-- Node.js 18+ and npm
-- Python 3.11+ and uv (or pip)
-- Supabase account (free tier works)
-- Optional: ElevenLabs API key, Google Gemini API key
+---
 
-### 1. Database Setup
 
-1. Create a Supabase project at https://supabase.com
-2. Run the migration:
+### 🔧 技術スタック
+
+#### Frontend
+```typescript
+Next.js 15.1      // React フレームワーク
+TypeScript 5.0+   // 型安全性
+Tailwind CSS      // スタイリング
+shadcn/ui         // UIコンポーネント
+Framer Motion     // アニメーション
+Zustand           // 状態管理
+```
+
+#### Backend
+```python
+FastAPI 0.115+        # Web フレームワーク
+Python 3.11+          # 言語
+Pydantic              # バリデーション
+ElevenLabs API        # TTS/STT
+Google Gemini         # AI フィードバック
+Supabase SDK          # データベース
+```
+
+---
+
+## 🚀 クイックスタート
+
+### 📋 必要要件
+
+- Node.js 18+ / npm
+- Python 3.11+ / uv または pip
+- Supabase アカウント（無料プランOK）
+- （オプション）ElevenLabs API キー
+- （オプション）Google Gemini API キー
+
+### ⚙️ セットアップ
+
+<details>
+<summary><strong>1️⃣ データベース設定</strong></summary>
+
 ```bash
-# Copy the SQL from supabase/migrations/001_initial_schema.sql
-# and run it in Supabase SQL Editor
+# 1. Supabase プロジェクトを作成
+# https://supabase.com
+
+# 2. SQL エディタでマイグレーションを実行
+# supabase/migrations/001_initial_schema.sql の内容をコピー&実行
+
+# 3. Storageバケットを作成
+# Storage → New bucket → "audio-files" (Public)
 ```
 
-3. Create storage bucket for audio files:
-   - Go to Storage in Supabase dashboard
-   - Create a new bucket named `audio-files`
-   - Make it public
+</details>
 
-### 2. Backend Setup
+<details>
+<summary><strong>2️⃣ バックエンド設定</strong></summary>
 
 ```bash
 cd backend
 
-# Create .env file
-cp .env.example .env
+# 環境変数ファイルを作成
+cat > .env << EOF
+SUPABASE_URL=https://xxxxx.supabase.co
+SUPABASE_KEY=your_anon_key
+SUPABASE_SERVICE_KEY=your_service_key
+ELEVENLABS_API_KEY=  # オプション（空でもOK）
+GOOGLE_API_KEY=      # オプション（空でもOK）
+EOF
 
-# Edit .env with your credentials
-# Required: SUPABASE_URL, SUPABASE_KEY, SUPABASE_SERVICE_KEY
-# Optional: ELEVENLABS_API_KEY, GOOGLE_API_KEY
+# 依存関係をインストール
+uv sync
 
-# Install dependencies
-uv sync  # or: pip install -r requirements.txt
-
-# Run the server
+# サーバー起動
 uv run uvicorn main:app --reload
-# Or if using pip: uvicorn main:app --reload
 
-# Server runs on http://localhost:8000
-# API docs at http://localhost:8000/docs
+# ✅ http://localhost:8000
+# 📚 API Docs: http://localhost:8000/docs
 ```
 
-### 3. Frontend Setup
+</details>
+
+<details>
+<summary><strong>3️⃣ フロントエンド設定</strong></summary>
 
 ```bash
 cd frontend
 
-# Create .env.local file
-cp env.local.example .env.local
+# 環境変数ファイルを作成
+cat > .env.local << EOF
+NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+NEXT_PUBLIC_API_URL=http://localhost:8000
+EOF
 
-# Edit .env.local with your credentials
-# NEXT_PUBLIC_SUPABASE_URL
-# NEXT_PUBLIC_SUPABASE_ANON_KEY
-# NEXT_PUBLIC_API_URL=http://localhost:8000
-
-# Install dependencies
+# 依存関係をインストール
 npm install
 
-# Run the dev server
+# 開発サーバー起動
 npm run dev
 
-# App runs on http://localhost:3000
+# ✅ http://localhost:3000
 ```
 
-### 4. Access the App
+</details>
 
-1. Open http://localhost:3000
-2. Click "Skip (Demo Mode)" or configure Google OAuth
-3. Create your first material at `/materials/create`
-4. Start practicing!
+### 🎉 起動完了！
 
-## 🎯 Usage Flow
-
-### Creating a Material
-1. Navigate to "Create Material"
-2. Enter title, description, and difficulty
-3. Add sentences (the app will generate audio)
-4. Click "Create Material"
-5. Audio is generated using TTS (or mock audio if no API key)
-
-### Practicing
-1. Select a material from the home page
-2. **Practice Mode**: Listen and read synchronized subtitles
-3. **Recording Mode**: Click "Start Recording"
-4. The audio plays while your mic records
-5. Click "Stop Recording" when done
-6. Get instant feedback with score and AI suggestions
-
-### Viewing Results
-- Score display with count-up animation
-- Text comparison (expected vs. your answer)
-- Word-by-word analysis (correct/missed/extra)
-- AI feedback with personalized tips
-- XP gained and streak updates
-
-## 🔧 Configuration
-
-### Environment Variables
-
-#### Backend (.env)
-```bash
-# Required
-SUPABASE_URL=https://xxxxx.supabase.co
-SUPABASE_KEY=eyJhbG...   # anon key
-SUPABASE_SERVICE_KEY=eyJhbG...  # service role key
-
-# Optional (leave empty for mock mode)
-ELEVENLABS_API_KEY=sk_...
-GOOGLE_API_KEY=AIza...
-
-# App Config
-ENVIRONMENT=development
-CORS_ORIGINS=http://localhost:3000
-```
-
-#### Frontend (.env.local)
-```bash
-NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbG...
-NEXT_PUBLIC_API_URL=http://localhost:8000
-```
-
-### Mock vs. Real APIs
-
-The app intelligently switches between mock and real services based on API key presence:
-
-| Service | With API Key | Without API Key |
-|---------|-------------|-----------------|
-| TTS | ElevenLabs API | WAV silence generator |
-| STT | ElevenLabs API | Random phrase picker |
-| AI Feedback | Google Gemini | Template-based feedback |
-| Scoring | Word matching (always local) | Same |
-| Gamification | Database-driven (always) | Same |
-
-## 📱 Key Pages
-
-- `/` - Home with streaks, goals, materials
-- `/materials/create` - Create new material
-- `/materials/[id]` - Practice/Recording modes
-- `/materials/[id]/result` - Score and feedback
-- `/history` - Practice history and stats
-- `/login` - Google OAuth (or demo mode)
-
-## 🎨 UX Psychology Principles
-
-1. **Streak System** - Fear of breaking the chain
-2. **Goal Gradient Effect** - "あと X 回で達成!"
-3. **Zeigarnik Effect** - "Continue where you left off"
-4. **Peak-End Law** - Confetti for high scores
-5. **Illusion of Labor** - Processing animations
-6. **Progress visualization** - XP bars, level system
-7. **Immediate feedback** - Real-time score display
-8. **Achievement system** - Badge unlocking
-9. **Doherty Threshold** - <0.4s animations
-10. **Aesthetic-Usability Effect** - Smooth motion
-
-## 🛠️ Development
-
-### Adding a New Feature
-
-1. **Backend**: Add route in `app/routers/`
-2. **Frontend**: Create component in `components/`
-3. **Types**: Update TypeScript types in `types/`
-4. **State**: Add to Zustand store if needed
-
-### Testing Endpoints
-
-```bash
-# Health check
-curl http://localhost:8000/health
-
-# Create material
-curl -X POST http://localhost:8000/api/materials \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "Test",
-    "difficulty": "beginner",
-    "sentences": ["Hello world"]
-  }'
-
-# List materials
-curl http://localhost:8000/api/materials
-```
-
-## 📦 Deployment
-
-### Backend (Railway, Render, or similar)
-1. Set environment variables
-2. Deploy with `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-
-### Frontend (Vercel recommended)
-1. Connect GitHub repo
-2. Set `NEXT_PUBLIC_*` environment variables
-3. Deploy automatically
-
-## 🤝 Contributing
-
-This is a personal project, but feedback and suggestions are welcome!
-
-## 📄 License
-
-MIT License - feel free to use for learning purposes
-
-## 🙏 Acknowledgments
-
-- Built with Claude Code
-- Inspired by UX psychology research
-- shadcn/ui for beautiful components
-- Framer Motion for smooth animations
+1. ブラウザで http://localhost:3000 を開く
+2. 「Skip (Demo Mode)」でログイン
+3. 教材を作成して練習開始！
 
 ---
 
-**Note**: This app works fully offline with mock services. No external API keys required for basic functionality!
+## 📖 使い方
+
+### 📝 教材作成
+
+```
+/materials/create にアクセス
+  ↓
+タイトル・難易度・文章を入力
+  ↓
+音声が自動生成される（TTS）
+  ↓
+教材完成！
+```
+
+### 🎤 シャドーイング練習
+
+```
+教材を選択
+  ↓
+Practice Mode: 音声を聴いて理解
+  ↓
+Recording Mode: 録音しながらシャドーイング
+  ↓
+AIフィードバック & スコア表示
+  ↓
+XP獲得 & レベルアップ！
+```
+
+---
+
+## 🎨 UX心理学の実装
+
+このアプリは以下の心理学原則に基づいて設計されています：
+
+| 原則 | 実装 | 効果 |
+|------|------|------|
+| 🔥 **ストリークシステム** | 連続練習日数の可視化 | 継続のモチベーション |
+| 🎯 **ゴールグラディエント効果** | 「あとX回で達成！」 | ゴール間近での加速 |
+| 🧠 **ツァイガルニク効果** | Continue Bannerの表示 | 未完了タスクへの回帰 |
+| 🎊 **ピークエンド法則** | 高スコア時の紙吹雪 | ポジティブ体験の記憶 |
+| ⏱️ **労力の錯覚** | 処理中アニメーション | 品質の認知向上 |
+| 📊 **進捗の可視化** | XPバー・レベル表示 | 成長の実感 |
+
+---
+
+## 🛠️ 開発
+
+### プロジェクト構造
+
+```
+shadowing-app/
+├── frontend/              # Next.js アプリ
+│   ├── app/              # ページ（App Router）
+│   ├── components/       # Reactコンポーネント
+│   ├── lib/              # ユーティリティ
+│   ├── store/            # Zustand stores
+│   └── types/            # TypeScript型定義
+├── backend/              # FastAPI アプリ
+│   ├── app/
+│   │   ├── routers/     # APIエンドポイント
+│   │   ├── services/    # ビジネスロジック
+│   │   ├── models/      # データモデル
+│   │   └── auth.py      # 認証
+│   └── main.py          # エントリーポイント
+├── supabase/            # データベース
+│   └── migrations/      # SQLマイグレーション
+└── assets/              # 静的アセット
+```
+
+### よく使うコマンド
+
+```bash
+# Backend
+cd backend
+uv run uvicorn main:app --reload  # 開発サーバー
+uv run pytest                      # テスト実行
+
+# Frontend
+cd frontend
+npm run dev                        # 開発サーバー
+npm run build                      # 本番ビルド
+npm run lint                       # Lint実行
+
+# Database
+# Supabase Dashboard でSQLを実行
+```
+
+### APIエンドポイント
+
+| Method | Endpoint | 説明 |
+|--------|----------|------|
+| `GET` | `/health` | ヘルスチェック |
+| `POST` | `/api/materials` | 教材作成 |
+| `GET` | `/api/materials` | 教材一覧 |
+| `GET` | `/api/materials/{id}` | 教材詳細 |
+| `POST` | `/api/practice/transcribe` | 音声文字起こし |
+| `POST` | `/api/practice/feedback` | AIフィードバック |
+| `POST` | `/api/practice/log` | 練習ログ保存 |
+
+詳細: http://localhost:8000/docs
+
+---
+
+## 🚢 デプロイ
+
+### Backend（Railway / Render / Fly.io）
+
+```bash
+# 環境変数を設定
+SUPABASE_URL=...
+SUPABASE_KEY=...
+SUPABASE_SERVICE_KEY=...
+
+# 起動コマンド
+uvicorn main:app --host 0.0.0.0 --port $PORT
+```
+
+### Frontend（Vercel 推奨）
+
+```bash
+# GitHubリポジトリと連携
+# 環境変数を設定
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+NEXT_PUBLIC_API_URL=https://your-backend.com
+
+# 自動デプロイ 🚀
+```
+
+---
+
+## 🤝 コントリビューション
+
+このプロジェクトは個人開発ですが、フィードバックや提案は大歓迎です！
+
+1. このリポジトリをフォーク
+2. フィーチャーブランチを作成 (`git checkout -b feature/AmazingFeature`)
+3. 変更をコミット (`git commit -m 'feat: add amazing feature'`)
+4. ブランチをプッシュ (`git push origin feature/AmazingFeature`)
+5. プルリクエストを作成
+
+---
