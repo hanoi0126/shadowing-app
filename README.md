@@ -41,28 +41,6 @@
 </tr>
 </table>
 
-### 🚀 技術的ハイライト
-
-```mermaid
-graph LR
-    A[Next.js Frontend] --> B[FastAPI Backend]
-    B --> C[Supabase DB]
-    B --> D[ElevenLabs API]
-    B --> E[Google Gemini AI]
-    B --> F[Mock Services]
-    
-    style A fill:#000,stroke:#fff
-    style B fill:#009688,stroke:#fff
-    style C fill:#3ECF8E,stroke:#fff
-```
-
-- ⚡ **モックサービス完備** - API キーなしで全機能が動作
-- 🎨 **モダンUI** - shadcn/ui + Framer Motion
-- 🌓 **ダークモード** - 目に優しいデフォルトテーマ
-- 📱 **レスポンシブ** - モバイルファースト設計
-- 🔒 **型安全** - TypeScript完全対応
-
-
 ---
 
 
