@@ -137,9 +137,9 @@ class AIService:
                 # Some environments expose it as google.genai
                 import google.genai as genai
 
-            client = genai.Client(api_key=settings.google_api_key)
+                client = genai.Client(api_key=settings.google_api_key)
 
-            prompt = f"""You are an encouraging English pronunciation coach.
+                prompt = f"""You are an encouraging English pronunciation coach.
 
 A student practiced shadowing this text:
 "{expected_text}"
@@ -158,10 +158,10 @@ Provide brief, encouraging feedback (2-3 sentences) focusing on:
 
 Keep it friendly, supportive, and actionable."""
 
-            response = client.models.generate_content(
-                model="gemini-1.5-flash",
-                contents=prompt,
-            )
+                response = client.models.generate_content(
+                    model="gemini-1.5-flash",
+                    contents=prompt,
+                )
 
             text = getattr(response, "text", None)
             if isinstance(text, str) and text.strip():
@@ -206,9 +206,9 @@ Keep it friendly, supportive, and actionable."""
                     repr(new_sdk_error),
                     repr(old_sdk_error),
                 )
-                return self._generate_mock_feedback(
-                    expected_text, user_text, score, missed_words, extra_words
-                )
+            return self._generate_mock_feedback(
+                expected_text, user_text, score, missed_words, extra_words
+            )
 
 
 # Global AI service instance

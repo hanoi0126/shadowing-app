@@ -1,0 +1,196 @@
+{
+  "folders": [
+    {
+      "name": "Root",
+      "path": "."
+    },
+    {
+      "name": "Frontend",
+      "path": "frontend"
+    },
+    {
+      "name": "Backend",
+      "path": "backend"
+    },
+    {
+      "name": "Database",
+      "path": "supabase"
+    }
+  ],
+  "settings": {
+    // Global settings
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.next": true,
+      "**/.ruff_cache": true,
+      "**/node_modules": true
+    },
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    
+    // Python/Backend settings
+    "[python]": {
+      "editor.defaultFormatter": "charliermarsh.ruff",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit"
+      }
+    },
+    "ruff.enable": true,
+    "ruff.organizeImports": true,
+    "ruff.fixAll": true,
+    "mypy-type-checker.args": [
+      "--config-file=backend/pyproject.toml"
+    ],
+    
+    // TypeScript/Frontend settings
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    
+    // ESLint settings
+    "eslint.enable": true,
+    "eslint.workingDirectories": [
+      "frontend"
+    ],
+    
+    // File associations
+    "files.associations": {
+      "*.css": "tailwindcss"
+    },
+    
+    // Terminal settings
+    "terminal.integrated.cwd": "${workspaceFolder:🏠 Root}",
+    
+    // Git settings
+    "git.ignoreLimitWarning": true
+  },
+  "extensions": {
+    "recommendations": [
+      // Python
+      "charliermarsh.ruff",
+      "ms-python.python",
+      "ms-python.mypy-type-checker",
+      
+      // TypeScript/React
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      
+      // General
+      "editorconfig.editorconfig",
+      "github.copilot",
+      "github.copilot-chat"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "🔧 Backend - Debug",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "uvicorn",
+        "args": [
+          "main:app",
+          "--reload"
+        ],
+        "cwd": "${workspaceFolder:🔧 Backend}",
+        "console": "integratedTerminal",
+        "justMyCode": false
+      },
+      {
+        "name": "🎨 Frontend - Debug",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "npm",
+        "runtimeArgs": [
+          "run",
+          "dev"
+        ],
+        "cwd": "${workspaceFolder:🎨 Frontend}",
+        "console": "integratedTerminal"
+      }
+    ],
+    "compounds": [
+      {
+        "name": "🚀 Full Stack - Debug",
+        "configurations": [
+          "🔧 Backend - Debug",
+          "🎨 Frontend - Debug"
+        ],
+        "stopAll": true
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Backend: Start",
+        "type": "shell",
+        "command": "uv run uvicorn main:app --reload",
+        "options": {
+          "cwd": "${workspaceFolder}/backend"
+        },
+        "problemMatcher": [],
+        "isBackground": true
+      },
+      {
+        "label": "Frontend: Start",
+        "type": "shell",
+        "command": "npm run dev",
+        "options": {
+          "cwd": "${workspaceFolder}/frontend"
+        },
+        "problemMatcher": [],
+        "isBackground": true
+      },
+      {
+        "label": "Lint: All",
+        "type": "shell",
+        "command": "make lint",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Format: All",
+        "type": "shell",
+        "command": "make format",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      }
+    ]
+  }
+}
