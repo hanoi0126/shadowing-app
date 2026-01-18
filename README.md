@@ -1,6 +1,9 @@
 <div align="center">
 
-![Shadowing App Logo](./assets/logo.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/logo.svg">
+  <img alt="Shadowing App Logo" src="./assets/logo.svg" style="background-color: #1a1a1a; padding: 20px; border-radius: 8px;">
+</picture>
 
 **AI駆動の次世代英語シャドーイング学習プラットフォーム**
 
@@ -14,28 +17,28 @@
 </div>
 
 
-## ✨ 特徴
+## 主な機能
 
 <table>
 <tr>
 <td width="50%">
 
-### 🎯 学習機能
-- **🎤 リアルタイム録音** - 高品質な音声キャプチャ
-- **🤖 AI フィードバック** - Gemini AIによる発音アドバイス
-- **📊 詳細スコアリング** - 単語レベルの精度分析
-- **📝 カスタム教材** - 自由に教材を作成可能
-- **🔊 TTS生成** - ElevenLabsによる自然な音声
+### 学習機能
+- **リアルタイム録音** - 高品質な音声キャプチャ
+- **AI フィードバック** - Gemini AIによる発音アドバイス
+- **詳細スコアリング** - 単語レベルの精度分析
+- **カスタム教材** - 自由に教材を作成可能
+- **TTS生成** - ElevenLabsによる自然な音声
 
 </td>
 <td width="50%">
 
-### 🎮 ゲーミフィケーション
-- **🔥 連続記録** - 継続学習の可視化
-- **⭐ XP & レベル** - 経験値システム
-- **🏆 実績バッジ** - マイルストーン達成
-- **🎯 デイリーゴール** - 目標グラディエント効果
-- **📈 進捗追跡** - 学習履歴の可視化
+### ゲーミフィケーション
+- **連続記録** - 継続学習の可視化
+- **XP & レベル** - 経験値システム
+- **実績バッジ** - マイルストーン達成
+- **デイリーゴール** - 目標グラディエント効果
+- **進捗追跡** - 学習履歴の可視化
 
 </td>
 </tr>
@@ -44,7 +47,7 @@
 ---
 
 
-### 🔧 技術スタック
+### 技術スタック
 
 #### Frontend
 ```typescript
@@ -68,9 +71,9 @@ Supabase SDK          # データベース
 
 ---
 
-## 🚀 クイックスタート
+## クイックスタート
 
-### 📋 必要要件
+### 必要要件
 
 - Node.js 18+ / npm
 - Python 3.11+ / uv または pip
@@ -78,10 +81,10 @@ Supabase SDK          # データベース
 - （オプション）ElevenLabs API キー
 - （オプション）Google Gemini API キー
 
-### ⚙️ セットアップ
+### セットアップ
 
 <details>
-<summary><strong>1️⃣ データベース設定</strong></summary>
+<summary><strong>1. データベース設定</strong></summary>
 
 ```bash
 # 1. Supabase プロジェクトを作成
@@ -97,7 +100,7 @@ Supabase SDK          # データベース
 </details>
 
 <details>
-<summary><strong>2️⃣ バックエンド設定</strong></summary>
+<summary><strong>2. バックエンド設定</strong></summary>
 
 ```bash
 cd backend
@@ -117,14 +120,14 @@ uv sync
 # サーバー起動
 uv run uvicorn main:app --reload
 
-# ✅ http://localhost:8000
-# 📚 API Docs: http://localhost:8000/docs
+# Server: http://localhost:8000
+# API Docs: http://localhost:8000/docs
 ```
 
 </details>
 
 <details>
-<summary><strong>3️⃣ フロントエンド設定</strong></summary>
+<summary><strong>3. フロントエンド設定</strong></summary>
 
 ```bash
 cd frontend
@@ -142,22 +145,22 @@ npm install
 # 開発サーバー起動
 npm run dev
 
-# ✅ http://localhost:3000
+# App: http://localhost:3000
 ```
 
 </details>
 
-### 🎉 起動完了！
+### 起動完了
 
 1. ブラウザで http://localhost:3000 を開く
 2. 「Skip (Demo Mode)」でログイン
-3. 教材を作成して練習開始！
+3. 教材を作成して練習開始
 
 ---
 
-## 📖 使い方
+## 使い方
 
-### 📝 教材作成
+### 教材作成
 
 ```
 /materials/create にアクセス
@@ -169,7 +172,7 @@ npm run dev
 教材完成！
 ```
 
-### 🎤 シャドーイング練習
+### シャドーイング練習
 
 ```
 教材を選択
@@ -180,27 +183,27 @@ Recording Mode: 録音しながらシャドーイング
   ↓
 AIフィードバック & スコア表示
   ↓
-XP獲得 & レベルアップ！
+XP獲得 & レベルアップ
 ```
 
 ---
 
-## 🎨 UX心理学の実装
+## UX心理学の実装
 
 このアプリは以下の心理学原則に基づいて設計されています：
 
 | 原則 | 実装 | 効果 |
 |------|------|------|
-| 🔥 **ストリークシステム** | 連続練習日数の可視化 | 継続のモチベーション |
-| 🎯 **ゴールグラディエント効果** | 「あとX回で達成！」 | ゴール間近での加速 |
-| 🧠 **ツァイガルニク効果** | Continue Bannerの表示 | 未完了タスクへの回帰 |
-| 🎊 **ピークエンド法則** | 高スコア時の紙吹雪 | ポジティブ体験の記憶 |
-| ⏱️ **労力の錯覚** | 処理中アニメーション | 品質の認知向上 |
-| 📊 **進捗の可視化** | XPバー・レベル表示 | 成長の実感 |
+| **ストリークシステム** | 連続練習日数の可視化 | 継続のモチベーション |
+| **ゴールグラディエント効果** | 「あとX回で達成！」 | ゴール間近での加速 |
+| **ツァイガルニク効果** | Continue Bannerの表示 | 未完了タスクへの回帰 |
+| **ピークエンド法則** | 高スコア時の紙吹雪 | ポジティブ体験の記憶 |
+| **労力の錯覚** | 処理中アニメーション | 品質の認知向上 |
+| **進捗の可視化** | XPバー・レベル表示 | 成長の実感 |
 
 ---
 
-## 🛠️ 開発
+## 開発
 
 ### プロジェクト構造
 
@@ -258,7 +261,7 @@ npm run lint                       # Lint実行
 
 ---
 
-## 🚢 デプロイ
+## デプロイ
 
 ### Backend（Railway / Render / Fly.io）
 
@@ -281,12 +284,12 @@ NEXT_PUBLIC_SUPABASE_URL=...
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 NEXT_PUBLIC_API_URL=https://your-backend.com
 
-# 自動デプロイ 🚀
+# 自動デプロイ
 ```
 
 ---
 
-## 🤝 コントリビューション
+## コントリビューション
 
 このプロジェクトは個人開発ですが、フィードバックや提案は大歓迎です！
 
