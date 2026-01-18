@@ -1,9 +1,16 @@
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/logo.svg">
-  <img alt="Shadowing App Logo" src="./assets/logo.svg" style="background-color: #1a1a1a; padding: 20px; border-radius: 8px;">
-</picture>
+<table>
+<tr>
+<td align="center" bgcolor="#1a1a1a" style="padding: 20px; border-radius: 8px;">
+
+![Shadowing App Logo](./assets/logo.svg)
+
+</td>
+</tr>
+</table>
+
+# Shadowing App
 
 **AI駆動の次世代英語シャドーイング学習プラットフォーム**
 
@@ -12,7 +19,6 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python)](https://www.python.org/)
 [![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=flat-square&logo=supabase)](https://supabase.com/)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
 </div>
 
