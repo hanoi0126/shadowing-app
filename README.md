@@ -1,16 +1,12 @@
 <div align="center">
 
-<table>
-<tr>
-<td align="center" bgcolor="#1a1a1a" style="padding: 20px; border-radius: 8px;">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/logo.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/logo-light.svg">
+  <img alt="Shadowing App" src="./assets/logo-light.svg" width="280">
+</picture>
 
-![Shadowing App Logo](./assets/logo.svg)
-
-</td>
-</tr>
-</table>
-
-# Shadowing App
+<br>
 
 **AI駆動の次世代英語シャドーイング学習プラットフォーム**
 
